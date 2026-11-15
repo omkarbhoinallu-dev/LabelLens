@@ -2,7 +2,8 @@ import requests
 from google import genai
 from google.genai import types
 import streamlit as st
-from prompt import SYSTEM_PROMPT, WELCOME_MESSAGE_TEMPLATE, SUMMARY_REQUEST_PROMPT
+
+from prompts import SYSTEM_PROMPT, WELCOME_MESSAGE_TEMPLATE, SUMMARY_REQUEST_PROMPT
 
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 TELEGRAM_BOT_TOKEN = st.secrets["TELEGRAM_BOT_TOKEN"]
@@ -92,7 +93,7 @@ if 'onboarded' not in st.session_state:
             value=DEFAULT_CHAT_ID,
             placeholder="123456789",
             help="Open the LabelLens bot in Telegram and press Start first. "
-                "Your chat ID is the number LabelLens will message you on.",
+                 "Your chat ID is the number LabelLens will message you on.",
         )
         submitted = st.form_submit_button("Let's go 🚀")
     if submitted:
